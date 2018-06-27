@@ -1,5 +1,27 @@
-# kr-vue-swiper
+#jing-vue-swiper
 一个基于Vue的轮播图组件。应用于鲸准·洞见的门户
+
+# Usage
+```js
+  npm install --save jing-vue-swiper
+```
+```js
+  import { swiper, slide} from 'jing-vue-swiper';
+  export default {
+    components: {
+      swiper,
+      slide
+    }
+  }
+```
+```html
+  <swiper ref="swiper" v-if="list.length > 0"  @change="getNum">
+    <slide v-for="(item,index) in list"  :key="index" @clickSlide="show">
+      <img :src="item.img" >
+    </slide>
+  </swiper>
+```
+
 # API 
 参数 | 说明 | 类型 | 默认值
 -|-|-|-

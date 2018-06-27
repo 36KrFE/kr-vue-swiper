@@ -1,7 +1,20 @@
 {
-  "name": "vue-swiper",
-  "version": "0.1.0",
-  "private": true,
+  "name": "jing-vue-swiper",
+  "version": "0.2.1",
+  "description": "一个基于 vue2.0 的轮播图组件",
+  "keywords": [
+    "vue",
+    "swiper"
+  ],
+  "files": [
+    "index.js",
+    "src/components",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "author": "Amy Gao <gaonn_it@163.com>",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

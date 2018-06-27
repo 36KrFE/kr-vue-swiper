@@ -1,5 +1,5 @@
 <template>
-  <section class="kr_container" :style="{width: width, height: height}" @mouseover="mouseover" @mouseout="mouseout">
+  <section class="kr_container" :style="{ height: height}" @mouseover="mouseover" @mouseout="mouseout">
     <div class="kr_swiper" >
       <slot/>
     </div>
@@ -8,7 +8,7 @@
         v-for="(item,$index) in slidesLength" 
         :key="$index" 
         class="kr_indicator_item" 
-        :class="{kr_indicator_activeItem: $index+1 === index}"
+        :class="{kr_indicator_activeItem: $index+1 === indicatorIndex }"
         @click="indicatorClick($index)"
       >
       </div>
@@ -29,6 +29,7 @@
         dom: {},  // 存放轮播图的样式
         timeId: '',  // 计时器ID
         index: 1,
+        indicatorIndex: 1,
         auto: true, // 轮播图是否继续进行
         kr_arrow_show: false, //鼠标进入箭头显示
         
@@ -157,6 +158,17 @@
     watch: {
       'index'() {
         let newIndex = this.index;
+        switch (this.index) {
+          case this.slidesLength + 1:
+            this.indicatorIndex = 1;
+            break;
+          case 0:
+            this.indicatorIndex = this.slidesLength;
+            break;
+          default:
+            this.indicatorIndex = this.index;
+            break;
+        }
         if(newIndex <= 0 || newIndex >= this.slidesLength + 1) {
           return;
         }else {

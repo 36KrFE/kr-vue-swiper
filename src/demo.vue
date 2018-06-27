@@ -9,7 +9,8 @@
 </template>
 
 <script>
-  import { swiper, slide } from './index.js';
+  import { swiper, slide } from './components/index.js';
+
   export default {
     name: 'HelloWorld',
     components: {

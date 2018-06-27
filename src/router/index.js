@@ -6,7 +6,8 @@ export default new Router({
     {
       path: '/',
       name: 'Demo',
-      component: require('../components/HelloWorld.vue').default
+      component: require('../demo.vue').default
     }
+
   ]
 })
