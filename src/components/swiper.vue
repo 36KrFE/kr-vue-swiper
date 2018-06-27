@@ -60,10 +60,6 @@
         type: Boolean,
         default: true
       },
-      width: {
-        type: String,
-        default: '600px'
-      },
       height: {
         type: String,
         default: '300px'
@@ -185,6 +181,7 @@
 </script>
 <style>
   .kr_container {
+    width: 100%;
     position: relative;
     overflow: hidden;
   }

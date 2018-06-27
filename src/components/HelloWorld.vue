@@ -42,4 +42,7 @@
     margin: 0;
     padding: 0;
   }
+  .hello {
+    width: 600px;
+  }
 </style>
