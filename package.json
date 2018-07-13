@@ -1,34 +1,36 @@
 {
-  "name": "jing-vue-swiper",
-  "version": "0.2.1",
+  "name": "kr-vue-swiper",
+  "version": "0.1.6",
   "description": "一个基于 vue2.0 的轮播图组件",
+  "private": false,
   "keywords": [
     "vue",
     "swiper"
   ],
-  "files": [
-    "index.js",
-    "src/components",
-    "package.json",
-    "LICENSE",
-    "README.md"
-  ],
+  "main": "dist/swiper.js",
   "author": "Amy Gao <gaonn_it@163.com>",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-pro": "cross-env NODE_ENV=production webpack --progress --mode production",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "vue": "^2.5.16",
-    "vue-router": "^3.0.1"
+    "cross-env": "^5.2.0",
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.3",
     "@vue/cli-plugin-eslint": "^3.0.0-rc.3",
     "@vue/cli-service": "^3.0.0-rc.3",
-    "vue-template-compiler": "^2.5.16"
+    "css-loader": "^1.0.0",
+    "sass-loader": "^7.0.3",
+    "vue-loader": "^15.2.4",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.16",
+    "webpack-cli": "^3.0.8",
+    "webpack-command": "^0.4.1"
   },
   "eslintConfig": {
     "root": true,

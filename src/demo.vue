@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <swiper v-if="list.length > 0" width="590px" height="404px" :auto-play="true" @change="getNum">
-      <slide v-for="(item,index) in list"  :key="index" @clickSlide="show">
+      <slide v-for="(item,index) in list"  :key="index" >
         <img :src="item.img" >
       </slide>
     </swiper>
@@ -27,11 +27,11 @@
       }
     },
     methods: {
-      getNum(index) {
-        // console.log(index);
+      getNum() {
+        
       },
       show() {
-        console.log(123);
+        // console.log(123);
       }
     }
   }

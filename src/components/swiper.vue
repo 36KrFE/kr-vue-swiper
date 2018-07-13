@@ -1,6 +1,6 @@
 <template>
-  <section class="kr_container" :style="{ height: height}" @mouseover="mouseover" @mouseout="mouseout">
-    <div class="kr_swiper" >
+  <section class="kr_container" :style="{width: width, height: height}" @mouseover="mouseover" @mouseout="mouseout">
+    <div id="kr_swiper" class="kr_swiper" >
       <slot/>
     </div>
     <div v-if="showIndicator" class="kr_indicator" >
@@ -32,7 +32,6 @@
         indicatorIndex: 1,
         auto: true, // 轮播图是否继续进行
         kr_arrow_show: false, //鼠标进入箭头显示
-        
       }
     },
     props: {
@@ -61,6 +60,10 @@
         type: Boolean,
         default: true
       },
+      width: {
+        type: String,
+        default: '600px'
+      },
       height: {
         type: String,
         default: '300px'
@@ -69,15 +72,15 @@
     methods: {
       // 复制元素
       copyDom() {
-        let SlideDom = document.querySelector('.kr_swiper').getElementsByClassName('kr_slide');
+        let SlideDom = document.querySelector('#kr_swiper').getElementsByClassName('kr_slide');
         this.slidesLength = SlideDom.length;
         if(this.slidesLength > 1) {
           let cloneDom1 = SlideDom[0].cloneNode(true); 
           let cloneDom2 = SlideDom[SlideDom.length - 1].cloneNode(true); 
-          document.querySelector('.kr_swiper').insertBefore(cloneDom2, SlideDom[0]);
-          document.querySelector('.kr_swiper').appendChild(cloneDom1);
-          this.boxWidth = document.querySelector('.kr_swiper').offsetWidth;
-          this.dom = document.querySelector('.kr_swiper').style;
+          document.querySelector('#kr_swiper').insertBefore(cloneDom2, SlideDom[0]);
+          document.querySelector('#kr_swiper').appendChild(cloneDom1);
+          this.boxWidth = document.querySelector('#kr_swiper').offsetWidth;
+          this.dom = document.querySelector('#kr_swiper').style;
         }
       },
       // 设置定时函数
@@ -102,18 +105,19 @@
       // 控制index的变化
       setController() {
         let timeDuration = this.duration;
-        setTimeout(() => {
-          this.dom.transition = '0s';
+        setTimeout(() => {      
           // 向后翻
           if(this.index >= this.slidesLength + 1) {
+            this.dom.transition = '0ms';
             // 当播到最后一张图时，回到第一张
             this.index = 1;
-            this.setTransform(this.index * -1 * this.boxWidth);
+            this.setTransform(this.index * -1 * this.boxWidth);  
           }
           // 向前翻
           if(this.index <= 0) {
+            this.dom.transition = '0ms';
             this.index = this.slidesLength;
-            this.setTransform(this.index * -1 * this.boxWidth);
+            this.setTransform(this.index * -1 * this.boxWidth); 
           }
           this.auto = true;
         },timeDuration);

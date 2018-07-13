@@ -1,12 +1,12 @@
-#jing-vue-swiper
+# kr-vue-swiper
 一个基于Vue的轮播图组件。应用于鲸准·洞见的门户
 
 # Usage
 ```js
-  npm install --save jing-vue-swiper
+  npm install --save kr-vue-swiper
 ```
 ```js
-  import { swiper, slide} from 'jing-vue-swiper';
+  import { swiper, slide} from 'kr-vue-swiper';
   export default {
     components: {
       swiper,
@@ -21,6 +21,15 @@
     </slide>
   </swiper>
 ```
+图片自动轮播效果如下图：
+![轮播](./img/轮播.gif)
+
+点击轮播点效果如下图：
+![点播](./img/点播.gif)
+
+点击左右箭头效果如下图：
+![箭头播](./img/箭头播.gif)
+
 
 # API 
 参数 | 说明 | 类型 | 默认值
