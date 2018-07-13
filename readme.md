@@ -47,3 +47,4 @@ showArrow |　是否显示左右箭头 | boolean | true
 -|-|-
 change | 幻灯片切换时触发 | 目前激活的幻灯片的索引
 clickSlide | 当点击幻灯片时触发 | -
+
