@@ -88,12 +88,12 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  // https://www.cnblogs.com/wangyingblog/p/7027540.html  cheap-source-map 生成一个没有列信息的SourceMaps文件，不包含loader的sourcemap
+  // devtool: '#cheap-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
-  // module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
+  
   module.exports.plugins = (module.exports.plugins || []).concat([
     // 定义全局
     // 在开发环境中存在的提示信息，在生产环境中会去除，不会加载到代码中。可以减少代码量。
@@ -103,8 +103,9 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new VueLoaderPlugin(),
+    // 配置各个loader的插件，如postcss的 autoprefixer等；
     new webpack.LoaderOptionsPlugin({
-      minimize: true
+      minimize: true   //加载器是否要切换到优化模式。
     })
   ])
 }

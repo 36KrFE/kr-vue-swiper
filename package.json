@@ -1,6 +1,6 @@
 {
   "name": "kr-vue-swiper",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "一个基于 vue2.0 的轮播图组件",
   "private": false,
   "keywords": [
